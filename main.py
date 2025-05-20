@@ -4,12 +4,13 @@ from bs4 import BeautifulSoup
 baselink = "https://www.sudzibas.lv"
 usrinput = input("Ievadiet kompanijas nosaukumu: ")
 
-categorylink = "/category/atputa-izklaide/1"
+categorylink = "/category/mebeles-iekartas/22"
 page = requests.get(baselink + categorylink)
+counter = 0
 if page.status_code == 200:
     pageCode = BeautifulSoup(page.content, "html.parser")
     next = pageCode.find_all('a', string = " nākamā")
-    while(next != []):
+    while(True):
         found = pageCode.find_all('b', string = usrinput)
         for i in found:
             parent = i.find_parent('a')
@@ -30,10 +31,13 @@ if page.status_code == 200:
                 date = next_page_code.find_all(itemprop = "datePublished")
                 for t in date:
                     file.write(t.text)
+                file.close()
+                counter += 1
+        if(next == []):
+            break
         href = next[0].get('href')
         page = requests.get(baselink + categorylink + href)
         if page.status_code == 200:
             pageCode = BeautifulSoup(page.content, "html.parser")
             next = pageCode.find_all('a', string = " nākamā")
-
-
+    print("Sudzību skaits: " + str(counter))
