@@ -107,7 +107,6 @@ if page.status_code == 200:
             new_url = baselink + href
             sid = href.split("-")
             nextpage = requests.get(new_url)
-            time.sleep(2)
             if nextpage.status_code == 200:
                 next_page_code = BeautifulSoup(nextpage.content, "html.parser")
                 name = sid[len(sid) - 1] + ".txt"
