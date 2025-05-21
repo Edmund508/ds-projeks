@@ -7,3 +7,12 @@ Projekta uzdevums bija izveidot programmatūru, kas automātiski savāc sūdzīb
 Bibliotēka Requests tiek izmantota lai nolasīt vietnes kodu turpmakai apstrādei.
 ### Beautiful Soup
 Bibliotēka Beautiful Soup tiek izmantota lai apstradātu vietnes kodu un nolasīt no ta nepieciešamo informāciju.
+## Projekta definētas datu struktūras
+### List
+Koda dažādam nolukam tiek izveidoti dažādi saraksti. 
+Tie ir izmantoti lai:
+    1. Atrāst visas sudzības uz vienas lapas.
+    2. Parbaudīt, vai ir nākāma lapa.
+    3. Saņemt sudzības ID no href.
+## Programmatūras izmantošana
+https://youtu.be/W7JNk9NC7NQ
